@@ -21,18 +21,6 @@ iptables -A OUTPUT -p tcp -- dport 23 -j DROP
 iptables -A INPUT -p tcp -- dport 443 -j ACCEPT
 iptables -A OUTPUT -p tcp -- dport 443 -j ACCEPT
 
-# Block incoming and outgoing HTTP port 80 traffic:
-iptables -A OUTPUT -p tcp -- dport 80 -j DROP
-iptables -A INPUT -p tcp -- dport 80 -j DROP
-
-#block incomming and outgoing telnet trafic
-iptables -A INPUT -p tcp -- dport 23 -j DROP
-iptables -A OUTPUT -p tcp -- dport 23 -j DROP
-
-#Allow incomming and outgoing HTTPS port 443 trafic
-iptables -A INPUT -p tcp -- dport 443 -j ACCEPT
-iptables -A OUTPUT -p tcp -- dport 443 -j ACCEPT
-
 #Block incomming ICMP ping requests
 iptables -A INPUT -p icmp -- icmp-type echo-request -j DROP
 
